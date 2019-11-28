@@ -8,7 +8,7 @@ const geoSchema = new Schema({
         trim:true,
         default: 'Point',
     },
-    coordiantes:{
+    coordinates:{
         type: [Number],
         index:'2dsphere',
         required: [true,"coordinates field is required"]

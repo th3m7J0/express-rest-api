@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database');
 const ninjaCrud = require('./routes/ninja');
+let morgan = require('morgan');
+
+
 
 
 
@@ -25,8 +28,12 @@ app.use(( req, res, next)=>{
 });
 
 
+
+
 // connection to mongodb
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -42,6 +49,8 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+
 // handle errors
 app.use(function(err, req, res, next) {
     //console.log(err);
@@ -54,5 +63,9 @@ app.use(function(err, req, res, next) {
 
 // listen for requests
 app.listen(process.env.port || 4000,function () {
+    console.log("node env : "+process.env.NODE_ENV);
     console.log('now listening for requests on port 4000');
 })
+
+
+module.exports  = app;

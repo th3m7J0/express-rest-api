@@ -8,19 +8,18 @@ module.exports = {
   },
 
   readNearestNinja:function (req,res,next) {
-      // ninjaModel.find({}).then(function (ninjas) {
-      //     res.send(ninjas);
-      // }).catch(next);
-      ninjaModel.aggregate([{
-          $geoNear: {
-              near:{'type': 'Point', 'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)],},
-              maxDistance: 100000,
-              spherical: true,
-              distanceField: "dist.calculated"
-          },
-      }]).then(function (ninjas) {
+      ninjaModel.find({}).then(function (ninjas) {
           res.send(ninjas);
       }).catch(next);
+      // ninjaModel.aggregate([{
+      //     $geoNear: {
+      //         near:{'type': 'Point', 'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)],},
+      //         maxDistance: 100000,
+      //         distanceField: "dist.calculated"
+      //     },
+      // }]).then(function (ninjas) {
+      //     res.send(ninjas);
+      // }).catch(next);
   },
 
   update:function (req,res,next) {
