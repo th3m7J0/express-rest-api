@@ -4,4 +4,4 @@ this is just a copy for the tutorial of ninja youtube channel to make a rest api
 
 use `npm install` to install all packages .
 
-then `nodemon index.js` to run the app.
+then `nodemon app.js` to run the app.

@@ -2,9 +2,9 @@
   "name": "rest-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app/app.js",
   "scripts": {
-    "start": "SET NODE_ENV=dev && node index.js",
+    "start": "SET NODE_ENV=dev && node app/app.js",
     "test": "mocha"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4"
   }

@@ -1,10 +1,13 @@
+
+const envs = require('../config/loadenvs');
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('./config/database');
+const mongoose = require('../config/database');
 const ninjaCrud = require('./routes/ninja');
-let morgan = require('morgan');
+const morgan = require('morgan');
 
-
+// envirement variables
+console.log(envs);
 
 
 
@@ -62,9 +65,9 @@ app.use(function(err, req, res, next) {
 });
 
 // listen for requests
-app.listen(process.env.port || 4000,function () {
+app.listen(process.env.PORT || 4000,function () {
     console.log("node env : "+process.env.NODE_ENV);
-    console.log('now listening for requests on port 4000');
+    console.log(`now listening for requests on port ${process.env.PORT}`);
 })
 
 
